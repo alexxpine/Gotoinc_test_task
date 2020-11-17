@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Color picker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="color" class="color"></div>
+
+  <div class="slidercontainer">
+    <div class="slider">
+      <input id="red" class="range" type="range" min="0" max="255" value="10">
+      <p id="demo_red" class="demo"></p>
+    </div>
+    <div class="slider">
+      <input id="green" class="range" type="range" min="0" max="255" value="140">
+      <p id="demo_green" class="demo"></p>
+    </div>
+    <div class="slider">
+      <input id="blue" class="range" type="range" min="0" max="255" value="225">
+      <p id="demo_blue" class="demo"></p>
+    </div>
+  </div>
+  <!-- <div class="slidecontainer">
+    <input id="green" type="range" min="0" max="255" value="140">
+  </div>
+  <div class="slidecontainer">
+    <input id="blue" type="range" min="0" max="255" value="225">
+  </div> -->
+  </br>
+
+  <input id="cancel" type="button" value="Cancel">
+  <input id="submit" type="submit" value="Submit">
+
+  <script src="index.js"></script>
+</body>
+</html>
