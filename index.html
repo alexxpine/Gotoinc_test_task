@@ -10,7 +10,7 @@
 <body>
   <div id="color" class="color"></div>
 
-  <div class="slidercontainer">
+  <div id="slider_container" class="slidercontainer">
     <div class="slider">
       <input id="red" class="range" type="range" min="0" max="255" value="10">
       <p id="demo_red" class="demo"></p>
@@ -26,6 +26,7 @@
   </div>
   </br>
 
+  <input id="toggle" class="toggle" type="button" value="See more" onclick="onSlidersBlockToggle()">
   <input id="cancel" type="button" value="Cancel">
   <input id="submit" type="submit" value="Submit">
 
