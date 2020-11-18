@@ -1,19 +1,21 @@
-let slider = document.getElementById('slider_container');
-let rangeValues = document.getElementsByClassName('range');
-let outputRanges = document.getElementsByClassName('demo');
-let box = document.getElementById('color');
-let toggle = document.getElementById('toggle');
-let submitColor = document.getElementById('submit');
-let cance = document.getElementById('cancel');
-const changeColor = function() {
+const slider = document.getElementById('slider_container');
+const rangeValues = document.getElementsByClassName('range');
+const outputRanges = document.getElementsByClassName('demo');
+const box = document.getElementById('color');
+const toggle = document.getElementById('toggle');
+
+const values = [0, 0, 0];
+
+function changeColor() {
   box.style.backgroundColor = `RGB(${outputRanges[0].innerHTML}, ${outputRanges[1].innerHTML}, ${outputRanges[2].innerHTML})`;
 }
-const onChange = function() {
-  outputRanges[i].innerHTML = this.value;
+
+function onChange(i) {
+  outputRanges[i].innerHTML = rangeValues[i].value;
   changeColor();
 }
 
-const onSlidersBlockToggle = function() {
+function onSlidersBlockToggle() {
   if (toggle.value === 'See more') {
     slider.classList.add('show');
     toggle.value = 'See less';
@@ -23,26 +25,26 @@ const onSlidersBlockToggle = function() {
   }
 }
 
-cancel.onclick = function() {
+function onCancel() {
   slider.classList.remove('show');
-}
-
-// for (let i = 0; i < rangeValues.length; i++) {
-//   outputRanges[i].innerHTML = rangeValues[i].value;
-// }
- 
-for (let i = 0; i < rangeValues.length; i++) {
-  outputRanges[i].innerHTML = rangeValues[i].value;
-  rangeValues[i].oninput = function() {
-  outputRanges[i].innerHTML = this.value;
-  changeColor();
+  toggle.value = 'See more';
+  for (let i = 0; i < rangeValues.length; i++) {
+    rangeValues[i].value = values[i];
+    onChange(i);
   }
 }
 
-box.style.backgroundColor = `RGB(${outputRanges[0].innerHTML}, ${outputRanges[1].innerHTML}, ${outputRanges[2].innerHTML})`;
+function onSubmit() {
+  for (let i = 0; i < rangeValues.length; i++) {
+    values[i] = rangeValues[i].value;
+  }
+}
 
-// submitColor.onclick = function onSubmit() {
-//   box.style.backgroundColor = `RGB(${outputRanges[0].innerHTML}, ${outputRanges[1].innerHTML}, ${outputRanges[2].innerHTML})`;
-// }
+//init
+for (let i = 0; i < rangeValues.length; i++) {
+  outputRanges[i].innerHTML = rangeValues[i].value;
+
+  rangeValues[i].oninput = function() { onChange(i); }
+}
 
 changeColor();
